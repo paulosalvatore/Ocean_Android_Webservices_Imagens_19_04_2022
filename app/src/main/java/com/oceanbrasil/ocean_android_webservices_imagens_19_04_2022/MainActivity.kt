@@ -2,8 +2,10 @@ package com.oceanbrasil.ocean_android_webservices_imagens_19_04_2022
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,5 +55,12 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "Falha na requisição.", Toast.LENGTH_LONG).show()
             }
         })
+
+        // Carregamento de imagem (faremos o carregamento de cada pokémon na aula de RecyclerView)
+
+        val ivPokemon = findViewById<ImageView>(R.id.ivPokemon)
+
+        val urlImagem = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png"
+        Glide.with(this).load(urlImagem).into(ivPokemon)
     }
 }
